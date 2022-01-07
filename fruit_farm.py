@@ -10,20 +10,7 @@ logging.basicConfig(level=logging.DEBUG,
 BUF_SIZE = 50
 dirty_basket = queue.Queue(BUF_SIZE)
 clean_basket = queue.Queue(BUF_SIZE)
-tot_fruit = 3
-
-
-class TestClass(object):
-
-    def test_find_rigth_path(self):
-        # retorno = producer(1)
-        # assert retorno is not None
-        pass
-
-    def test_find_rigth_path(self):
-        # retorno = consumer(1)
-        # assert retorno is not None
-        pass
+tot_fruit = 50
 
 
 def producer(id):
@@ -40,9 +27,7 @@ def producer(id):
                           + ' : ' + str(dirty_basket.qsize()) + ' Fruit in the dirty basket')
             dalay_wait = random.randint(3, 6)
             time.sleep(dalay_wait)
-            return
-
-    return None
+    return
 
 
 def consumer(id):
@@ -57,23 +42,23 @@ def consumer(id):
             #               + ' : ' + str(clean_basket.qsize()) + ' items in queue')
             dalay_wait = random.randint(2, 4)
             time.sleep(dalay_wait)
-            return
-    return None
+    return
 
 
 if __name__ == '__main__':
     threadLock = threading.Lock()
     threads = []
 
-    p = threading.Thread(target=producer, args=(1,))
-    p.start()
+    for i in range(3):
+        p = threading.Thread(target=producer, args=(i,))
+        p.start()
 
-    # time.sleep(2)
-    c = threading.Thread(target=consumer, args=(1,))
-    c.start()
+        # time.sleep(2)
+        c = threading.Thread(target=consumer, args=(i,))
+        c.start()
 
-    threads.append(p)
-    threads.append(c)
+        threads.append(p)
+        threads.append(c)
 
     # Wait for all threads to complete
     for t in threads:
