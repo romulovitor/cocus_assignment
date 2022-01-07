@@ -1,4 +1,3 @@
-
 def find_by_sufix(suffix, path):
     import os
     """
@@ -14,17 +13,11 @@ def find_by_sufix(suffix, path):
     path_list = []
     for root, dirs, files in os.walk(path):
         for file in files:
-            if (file.endswith(suffix)):
-                # print(os.path.join(root, file))
-                path_list.append(os.path.join(root, file))
+            if file.endswith(suffix):  # looking for suffix
+                path_list.append(os.path.join(root, file)) # add to list of paths
     return path_list
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     path = "/home/romulo/dev/gitlab/cocus_assignment"
     suffix = ".py"
-    # print(find_by_sufix(suffix, path))
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
