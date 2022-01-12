@@ -1,13 +1,13 @@
-#Overview
+# Overview
 
 This repository contains the scripts corresponding to the test proposed by Cocus.
 
-###Prerequisites
+### Prerequisites
 
     Python >= 3.7.1
     Virtualenv >= 20.0.35
 
-###Deploy
+### Deploy
     
     1 - Clone this repository ( '$ git clone https://github.com/romulovitor/cocus_assignment.git ' )
     2 - Get in the project ( '$ cd cocus_assignment ')
